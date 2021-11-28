@@ -117,6 +117,7 @@ ul {
     ol,
     ul {
         margin-left: 1em;
+        margin-bottom: 0;
     }
 }
 
@@ -252,7 +253,6 @@ pre {
     font-size: var(--font-size-small);
     overflow: auto;
     padding: var(--padding-box);
-    border-left: 0.25rem solid var(--color-dark-accent);
     background-color: var(--color-contrast-lowest);
 
     code {

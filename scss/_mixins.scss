@@ -403,3 +403,9 @@
     text-overflow:ellipsis;
     white-space:nowrap;
 }
+
+///
+@mixin flex-column() {
+    display: flex;
+    flex-direction: column;
+}
