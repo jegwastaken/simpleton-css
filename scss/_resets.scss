@@ -116,7 +116,7 @@ ul {
 
     ol,
     ul {
-        margin-left: alley();
+        margin-left: alley(0.75);
         margin-bottom: 0;
     }
 }
@@ -220,12 +220,12 @@ strong {
 
 big {
     font-size: var(--font-size-big);
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 small {
     font-size: var(--font-size-small);
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 ins {
@@ -276,7 +276,7 @@ samp {
     font-size: var(--font-size-small);
     font-family: var(--font-stack-monospace);
     position: relative;
-    vertical-align: bottom;
+    vertical-align: top;
     top: 0.15em;
 }
 
@@ -284,7 +284,7 @@ cite {
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-normal);
     font-style: italic;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 abbr,
@@ -312,7 +312,7 @@ sub,
 sup {
     font-size: var(--font-size-xsmall);
     position: relative;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 ::-moz-focus-inner {

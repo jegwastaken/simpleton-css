@@ -155,7 +155,17 @@
         margin-bottom: if($m, calc(#{space($m)} * 0.5), space(0.5));
     }
 
-    h1,
+    h1 {
+        @include control-margins(top);
+
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
+        margin-bottom: if($m, space($m), space());
+    }
+
     h2,
     h3,
     h4,
@@ -221,20 +231,20 @@
 
 ///
 @mixin big() {
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
+    font-size: var(--font-size-big);
+    line-height: var(--line-height-big);
 }
 
 ///
 @mixin xbig() {
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-h4);
+    font-size: var(--font-size-xbig);
+    line-height: var(--line-height-xbig);
 }
 
 ///
 @mixin xxbig() {
-    font-size: var(--font-size-h3);
-    line-height: var(--line-height-h3);
+    font-size: var(--font-size-xxbig);
+    line-height: var(--line-height-xxbig);
 }
 
 ///
@@ -389,10 +399,12 @@
 
 ///
 @mixin figcaption() {
-    padding-top: space(0.375);
+    @include xsmall();
+
+    padding-top: space(0.5);
     color: var(--color-contrast-medium);
     text-align: center;
-    font-size: var(--font-size-xsmall);
+    text-transform: uppercase;
 }
 
 /// Unsets border radius
@@ -411,4 +423,18 @@
 @mixin flex-column() {
     display: flex;
     flex-direction: column;
+}
+
+///
+@mixin screen-reader-only {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    word-wrap: normal;
+    clip-path: inset(50%);
 }

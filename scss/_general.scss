@@ -122,6 +122,10 @@ figcaption {
     }
 }
 
+.clearfix {
+    @include clearfix();
+}
+
 .table-container {
     margin-bottom: space();
     overflow-x: auto;
@@ -132,14 +136,5 @@ figcaption {
 }
 
 .screen-reader-text {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    border: 0;
-    word-wrap: normal;
-    clip-path: inset(50%);
+    @include screen-reader-only();
 }
