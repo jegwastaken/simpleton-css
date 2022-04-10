@@ -112,11 +112,12 @@ ol {
 
 ol,
 ul {
-    margin-left: calc(1em + 2px);
+    margin-left: alley(2);
 
     ol,
     ul {
-        margin-left: 1em;
+        margin-left: alley(0.75);
+        margin-bottom: 0;
     }
 }
 
@@ -126,14 +127,14 @@ dl {
     }
 
     dd {
-        margin-left: calc(1em + 2px);
+        margin-left: alley();
     }
 }
 
 hr {
-    height: var(--border-size);
+    height: space(0.5);
     border: 0;
-    background-color: var(--color-contrast-lower);
+    background-color: var(--color-contrast-lowest);
 }
 
 blockquote,
@@ -219,10 +220,12 @@ strong {
 
 big {
     font-size: var(--font-size-big);
+    vertical-align: top;
 }
 
 small {
     font-size: var(--font-size-small);
+    vertical-align: top;
 }
 
 ins {
@@ -239,7 +242,6 @@ mark {
 }
 
 code {
-    padding: var(--padding-inline);
     background-color: var(--color-contrast-lowest);
 }
 
@@ -252,11 +254,9 @@ pre {
     font-size: var(--font-size-small);
     overflow: auto;
     padding: var(--padding-box);
-    border-left: 0.25rem solid var(--color-dark-accent);
     background-color: var(--color-contrast-lowest);
 
     code {
-        padding: 0;
         font-size: inherit;
     }
 }
@@ -264,8 +264,8 @@ pre {
 blockquote {
     @include xbig();
 
-    padding: var(--padding-box);
-    border-left: 0.25rem solid var(--color-primary);
+    padding: space(0.25) space(0.5);
+    border-left: alley(0.25) solid var(--color-contrast);
 }
 
 code,
@@ -275,12 +275,16 @@ kbd,
 samp {
     font-size: var(--font-size-small);
     font-family: var(--font-stack-monospace);
+    position: relative;
+    vertical-align: top;
+    top: 0.15em;
 }
 
 cite {
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-normal);
     font-style: italic;
+    vertical-align: top;
 }
 
 abbr,
@@ -297,18 +301,18 @@ strike {
 }
 
 sub {
-    bottom: -0.25em;
+    bottom: -0.35em;
 }
 
 sup {
-    top: -0.45em;
+    top: -0.35em;
 }
 
 sub,
 sup {
     font-size: var(--font-size-xsmall);
     position: relative;
-    vertical-align: baseline;
+    vertical-align: top;
 }
 
 ::-moz-focus-inner {
