@@ -31,6 +31,10 @@ $color-outline: #4d90fe;
         outline: none;
         box-shadow: 0 0 0.25rem 0 $color-outline;
     }
+
+    a {
+        color: inherit;
+    }
 }
 
 input[type='button'],
