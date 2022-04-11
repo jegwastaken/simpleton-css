@@ -27,7 +27,7 @@
     }
 }
 
-/// Includes `@content` on screens that are at least `$min-width` wide.
+/// Includes `@content` on screens at least `$min-width` wide.
 /// @param {<number>} $min-width
 @mixin min($min-width) {
     @media (min-width: $min-width) {
@@ -43,38 +43,11 @@
     }
 }
 
+/// Includes `@content` on screens `mix-width` to `$max-width` wide.
 /// @param {<number>} $min-width
 /// @param {<number>} $max-width
 @mixin min-max($min-width, $max-width) {
     @media (min-width: $min-width) and (max-width: $max-width) {
-        @content;
-    }
-}
-
-///
-@mixin min-small() {
-    @media (min-width: $breakpoint-s) {
-        @content;
-    }
-}
-
-///
-@mixin min-medium() {
-    @media (min-width: $breakpoint-m) {
-        @content;
-    }
-}
-
-///
-@mixin min-large() {
-    @media (min-width: $breakpoint-l) {
-        @content;
-    }
-}
-
-///
-@mixin min-xlarge() {
-    @media (min-width: $breakpoint-xl) {
         @content;
     }
 }
@@ -139,16 +112,8 @@
     $m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
-        margin-top: if(
-            $m,
-            calc(var(--space-top-h) * #{$m}),
-            var(--space-top-h)
-        );
-        margin-bottom: if(
-            $m,
-            calc(var(--space-top-h) * #{$m}),
-            var(--space-top-h)
-        );
+        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-bottom: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
     }
 
     caption {
@@ -158,11 +123,7 @@
     h1 {
         @include control-margins(top);
 
-        margin-top: if(
-            $m,
-            calc(var(--space-top-h) * #{$m}),
-            var(--space-top-h)
-        );
+        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
         margin-bottom: if($m, space($m), space());
     }
 
@@ -173,16 +134,8 @@
     h6 {
         @include control-margins(top);
 
-        margin-top: if(
-            $m,
-            calc(var(--space-top-h) * #{$m}),
-            var(--space-top-h)
-        );
-        margin-bottom: if(
-            $m,
-            calc(var(--space-bottom-h) * #{$m}),
-            var(--space-bottom-h)
-        );
+        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-bottom: if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
     }
 
     address,
@@ -216,16 +169,8 @@
 
         @include control-margins(top);
 
-        margin-top: if(
-            $m,
-            calc(var(--space-top-h) * #{$m}),
-            var(--space-top-h)
-        );
-        margin-bottom: if(
-            $m,
-            calc(var(--space-bottom-h) * #{$m}),
-            var(--space-bottom-h)
-        );
+        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-bottom: if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
     }
 }
 
@@ -280,7 +225,7 @@
 
 /// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
-@mixin mgbch($multiplier: 1, $important: false) {
+@mixin row-vertical-margins($multiplier: 1, $important: false) {
     $m: if(is-unitless-number($multiplier), $multiplier, 1);
     $i: if($important == true, $important, false);
 
@@ -296,9 +241,7 @@
 @mixin row-alleys($type: row, $multiplier: false) {
     $m: false;
 
-    @if index(map-keys($alley-sizes), $multiplier) {
-        $m: map-get($alley-sizes, $multiplier);
-    } @else if is-nonneg-unitless-number($multiplier) {
+    @if is-nonneg-unitless-number($multiplier) {
         $m: $multiplier;
     }
 
@@ -332,59 +275,59 @@
     }
 }
 
-///
-@mixin row-alley($alley-multiplier, $breakpoint: false) {
-    $m: false;
+// TODO: Delete?
+// @mixin row-alley($alley-multiplier, $breakpoint: false) {
+//     $m: false;
 
-    @if index(map-keys($alley-sizes), $alley-multiplier) {
-        $m: map-get($alley-sizes, $alley-multiplier);
-    } @else if is-nonneg-unitless-number($alley-multiplier) {
-        $m: $alley-multiplier;
-    }
+//     @if index(map-keys($alley-sizes), $alley-multiplier) {
+//         $m: map-get($alley-sizes, $alley-multiplier);
+//     } @else if is-nonneg-unitless-number($alley-multiplier) {
+//         $m: $alley-multiplier;
+//     }
 
-    @if $m {
-        @if index(map-keys($breakpoints), $breakpoint) {
-            @include min(map-get($breakpoints, $breakpoint)) {
-                @include row-alley-styles($m);
-            }
-        } @else if is-nonneg-unit-number($breakpoint) {
-            @include min($breakpoint) {
-                @include row-alley-styles($m);
-            }
-        } @else {
-            @include row-alley-styles($m);
-        }
-    }
-}
+//     @if $m {
+//         @if index(map-keys($breakpoints), $breakpoint) {
+//             @include min(map-get($breakpoints, $breakpoint)) {
+//                 @include row-alley-styles($m);
+//             }
+//         } @else if is-nonneg-unit-number($breakpoint) {
+//             @include min($breakpoint) {
+//                 @include row-alley-styles($m);
+//             }
+//         } @else {
+//             @include row-alley-styles($m);
+//         }
+//     }
+// }
 
-///
-@mixin col-width($column-width, $breakpoint: false) {
-    @if index(map-keys($columns), $column-width) {
-        @if index(map-keys($breakpoints), $breakpoint) {
-            @include min(map-get($breakpoints, $breakpoint)) {
-                width: map-get($columns, $column-width);
-            }
-        } @else if is-nonneg-unit-number($breakpoint) {
-            @include min($breakpoint) {
-                width: map-get($columns, $column-width);
-            }
-        } @else {
-            width: map-get($columns, $column-width);
-        }
-    } @else if is-nonneg-unitless-number($column-width) {
-        @if index(map-keys($breakpoints), $breakpoint) {
-            @include min(map-get($breakpoints, $breakpoint)) {
-                width: percentage($column-width);
-            }
-        } @else if is-nonneg-unit-number($breakpoint) {
-            @include min($breakpoint) {
-                width: percentage($column-width);
-            }
-        } @else {
-            width: percentage($column-width);
-        }
-    }
-}
+// TODO: Delete?
+// @mixin col-width($column-width, $breakpoint: false) {
+//     @if index(map-keys($columns), $column-width) {
+//         @if index(map-keys($breakpoints), $breakpoint) {
+//             @include min(map-get($breakpoints, $breakpoint)) {
+//                 width: map-get($columns, $column-width);
+//             }
+//         } @else if is-nonneg-unit-number($breakpoint) {
+//             @include min($breakpoint) {
+//                 width: map-get($columns, $column-width);
+//             }
+//         } @else {
+//             width: map-get($columns, $column-width);
+//         }
+//     } @else if is-nonneg-unitless-number($column-width) {
+//         @if index(map-keys($breakpoints), $breakpoint) {
+//             @include min(map-get($breakpoints, $breakpoint)) {
+//                 width: percentage($column-width);
+//             }
+//         } @else if is-nonneg-unit-number($breakpoint) {
+//             @include min($breakpoint) {
+//                 width: percentage($column-width);
+//             }
+//         } @else {
+//             width: percentage($column-width);
+//         }
+//     }
+// }
 
 /// Utility to clear floats
 @mixin clearfix() {

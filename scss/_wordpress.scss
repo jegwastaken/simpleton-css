@@ -77,7 +77,7 @@ blockquote {
 
 .gallery {
     @include row(tighter);
-    @include mgbch();
+    @include row-vertical-margins();
 
     margin-bottom: space();
 }

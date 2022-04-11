@@ -109,19 +109,6 @@ figcaption {
     @include figcaption();
 }
 
-.group {
-    margin: 0 auto;
-    max-width: $max-site-width;
-    width: 100%;
-    padding-right: $alley / 2;
-    padding-left: $alley / 2;
-
-    @include min($breakpoint-s) {
-        padding-right: $alley;
-        padding-left: $alley;
-    }
-}
-
 .clearfix {
     @include clearfix();
 }
