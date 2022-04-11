@@ -19,7 +19,7 @@ const files = exports.files = {
     'sassdocjson': 'sassdoc.json',
 };
 
-exports.sassVars = parse(fs.readFileSync(`${dirs.simpletonScss}/_vars.scss`, 'utf8'), {camelCase: false});
+exports.sassVars = parse(fs.readFileSync(`${dirs.simpletonScss}/_variables.scss`, 'utf8'), {camelCase: false});
 exports.sassdocData = require(`./${files.sassdocjson}`);
 
 const packageInfo = JSON.parse(fs.readFileSync('package.json', 'utf8'));
