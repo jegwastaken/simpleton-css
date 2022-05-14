@@ -1,13 +1,18 @@
-.idea/
-.sass-cache/
-.delete/
+# Logs
+*.log*
+
+# Dep dirs
 node_modules/
+
+# IDEs
+.idea/
+.vscode/
+
+# Etcetera
 .env
-.DS_Store
-*.bak
-*.bat
-*.log
-*.tmp
-*.stackdump
-npm-debug.*
-docs-dev/
+*.bak*
+
+# Project
+.ext/
+.timestamp
+*.tsbuildinfo

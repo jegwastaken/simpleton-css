@@ -1,3 +1,3 @@
-# Simpleton CSS
+# simpleton-css
 
-A CSS framework so simple, you'll probably use something else.
+A glorified CSS reset.

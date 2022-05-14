@@ -1,0 +1,8 @@
+# dot preceded files need love too
+!/.*.js
+#
+.yalc/
+node_modules/
+build/
+public/
+*.min.js
