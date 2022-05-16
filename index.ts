@@ -1,10 +1,8 @@
-import Lollygag from '@lollygag/core';
+import Lollygag, {markdown, templates} from '@lollygag/core';
 import livedev from '@lollygag/livedev';
-import typescript from '@lollygag/typescript';
 import sass from '@lollygag/sass';
 
 const isProduction = process.env.NODE_ENV === 'production';
-
 const lollygag = new Lollygag();
 
 lollygag
@@ -15,7 +13,8 @@ lollygag
         siteName: 'Simpleton CSS',
         siteDescription: 'A glorified CSS reset.',
     })
-    .do(typescript())
+    .do(markdown())
+    .do(templates())
     .do(sass());
 
 if(!isProduction) {
