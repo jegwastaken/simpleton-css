@@ -6,7 +6,8 @@
 $line-height: 1.75;
 
 :root {
-    --font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia, serif;
+    --font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia,
+        serif;
     --font-stack-sansserif: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-stack-general: var(--font-stack-sansserif);
     --font-stack-heading: var(--font-stack-general);
@@ -80,7 +81,8 @@ $line-height: 1.75;
     --p-inline-r: 0.125em;
     --p-inline-b: 0.125em;
     --p-inline-l: 0.25em;
-    --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b) var(--p-inline-l);
+    --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b)
+        var(--p-inline-l);
     --p-box-t: #{space(0.5)};
     --p-box-r: #{alley(0.5)};
     --p-box-b: #{space(0.5)};
@@ -90,22 +92,26 @@ $line-height: 1.75;
     --p-message-r: #{alley(0.5)};
     --p-message-b: #{space(0.5)};
     --p-message-l: #{alley(0.5)};
-    --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b) var(--p-message-l);
+    --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b)
+        var(--p-message-l);
     --p-table-t: #{space(0.5)};
     --p-table-r: #{alley(0.5)};
     --p-table-b: #{space(0.5)};
     --p-table-l: 0;
-    --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b) var(--p-table-l);
+    --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
+        var(--p-table-l);
     --p-button-t: #{space(0.25)};
     --p-button-r: #{alley(0.25)};
     --p-button-b: #{space(0.25)};
     --p-button-l: #{alley(0.25)};
-    --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b) var(--p-button-l);
+    --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b)
+        var(--p-button-l);
     --p-input-t: #{space(0.25)};
     --p-input-r: #{alley(0.25)};
     --p-input-b: #{space(0.25)};
     --p-input-l: #{alley(0.25)};
-    --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b) var(--p-input-l);
+    --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b)
+        var(--p-input-l);
     --border-size: 1px;
     --border-radies: 0.25em;
     --max-site-width: 1200px;

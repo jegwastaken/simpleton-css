@@ -3,7 +3,7 @@
 /// @param {<number>} $aspect-height [9]
 /// @access private
 @mixin aspect-ratio-to-padding($aspect-width: 16, $aspect-height: 9) {
-    padding-bottom: percentage($aspect-height / $aspect-width);
+    padding-bottom: percentage(calc($aspect-height / $aspect-width));
 }
 
 /// Adds styles for a responsive video container.
