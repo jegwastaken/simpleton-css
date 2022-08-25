@@ -20,6 +20,8 @@
   "devDependencies": {
     "@lollygag/core": "*",
     "@lollygag/livedev": "*",
+    "@lollygag/markdown": "*",
+    "@lollygag/templates": "*",
     "@lollygag/sass": "*",
     "@types/node": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
