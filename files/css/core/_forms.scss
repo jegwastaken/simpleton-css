@@ -55,10 +55,6 @@ input {
     &[type='password'],
     &[type='url'],
     &[type='week'] {
-        @include ie9plus() {
-            line-height: 1;
-        }
-
         @include input-styles();
     }
 }

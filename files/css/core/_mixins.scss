@@ -52,15 +52,6 @@
     }
 }
 
-/// Includes `@content` for ie9 and above.
-@mixin ie9plus() {
-    // @formatter:off
-    @media (min-width: 0\0) and (min-resolution: +72dpi) {
-        @content;
-    }
-    // @formatter:on
-}
-
 /// Includes `@content` for ie10 and above.
 @mixin ie10plus() {
     @media (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -112,8 +103,16 @@
     $m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
-        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
-        margin-bottom: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
+        margin-bottom: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
     }
 
     caption {
@@ -123,7 +122,11 @@
     h1 {
         @include control-margins(top);
 
-        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
         margin-bottom: if($m, space($m), space());
     }
 
@@ -134,8 +137,16 @@
     h6 {
         @include control-margins(top);
 
-        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
-        margin-bottom: if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
+        margin-bottom: if(
+            $m,
+            calc(var(--space-bottom-h) * #{$m}),
+            var(--space-bottom-h)
+        );
     }
 
     address,
@@ -169,8 +180,16 @@
 
         @include control-margins(top);
 
-        margin-top: if($m, calc(var(--space-top-h) * #{$m}), var(--space-top-h));
-        margin-bottom: if($m, calc(var(--space-bottom-h) * #{$m}), var(--space-bottom-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
+        margin-bottom: if(
+            $m,
+            calc(var(--space-bottom-h) * #{$m}),
+            var(--space-bottom-h)
+        );
     }
 }
 
