@@ -364,18 +364,6 @@ hr {
   background-color: var(--color-contrast-lowest);
 }
 
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: none;
-}
-
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -385,17 +373,8 @@ a:hover {
   color: inherit;
 }
 
-input[type=submit]:not(:disabled), input[type=button]:not(:disabled), input[type=reset]:not(:disabled) {
-  cursor: pointer;
-}
-
 textarea {
   resize: none;
-}
-
-button {
-  overflow: visible;
-  cursor: pointer;
 }
 
 fieldset {
@@ -582,12 +561,16 @@ h6:first-child:not(.f-margins) {
 }
 
 address,
+article,
 blockquote,
 canvas,
+details,
+details[open] summary,
 dl,
 fieldset,
 figure,
 form,
+form > div,
 noscript,
 ol,
 p,
@@ -683,11 +666,6 @@ input:not([type]), input[type=color], input[type=date], input[type=datetime], in
   width: 100%;
   border: var(--border-size) solid var(--color-contrast-lower);
   border-radius: var(--border-radius);
-}
-@media (min-width: 0\0 ) and (min-resolution: 72dpi) {
-  input:not([type]), input[type=color], input[type=date], input[type=datetime], input[type=datetime-local], input[type=email], input[type=file], input[type=number], input[type=range], input[type=search], input[type=tel], input[type=text], input[type=month], input[type=password], input[type=url], input[type=week] {
-    line-height: 1;
-  }
 }
 
 input[type=range] {

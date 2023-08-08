@@ -150,12 +150,16 @@
     }
 
     address,
+    article,
     blockquote,
     canvas,
+    details,
+    details[open] summary,
     dl,
     fieldset,
     figure,
     form,
+    form > div,
     noscript,
     ol,
     p,

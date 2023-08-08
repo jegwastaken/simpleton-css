@@ -242,17 +242,15 @@ hr {
     background-color: var(--color-contrast-lowest);
 }
 
-blockquote,
-q {
-    quotes: none;
-}
+// TODO: Delete?
+// q {
+//     quotes: none;
+// }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-    content: none;
-}
+// q:before,
+// q:after {
+//     content: none;
+// }
 
 a {
     color: var(--color-primary);
@@ -264,24 +262,14 @@ a {
     }
 }
 
-input {
-    &[type='submit'],
-    &[type='button'],
-    &[type='reset'] {
-        &:not(:disabled) {
-            cursor: pointer;
-        }
-    }
-}
-
 textarea {
     resize: none;
 }
 
-button {
-    overflow: visible;
-    cursor: pointer;
-}
+// TODO: Delete?
+// button {
+//     overflow: visible;
+// }
 
 fieldset {
     border: 0;
