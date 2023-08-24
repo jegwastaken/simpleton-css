@@ -43,7 +43,7 @@
     }
 }
 
-/// Includes `@content` on screens `mix-width` to `$max-width` wide.
+/// Includes `@content` on screens `$min-width` to `$max-width` wide.
 /// @param {<number>} $min-width
 /// @param {<number>} $max-width
 @mixin min-max($min-width, $max-width) {
