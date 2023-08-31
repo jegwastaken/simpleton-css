@@ -1,3 +1,8 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:string";
 //
 // Strings
 //
@@ -18,24 +23,24 @@
     $last-item: null;
     $last-item-quoted: false;
 
-    @if type-of($list) != list {
+    @if meta.type-of($list) != list {
         @error '`#{$list}` is not a valid list.';
     }
 
-    @for $i from 1 through length($list) {
-        $item: nth($list, $i);
+    @for $i from 1 through list.length($list) {
+        $item: list.nth($list, $i);
 
-        @if type-of($item) == list {
-            @if $i == length($list) {
-                $last-item: nth($item, -1);
-                $is-nested-list: type-of($last-item) == list;
+        @if meta.type-of($item) == list {
+            @if $i == list.length($list) {
+                $last-item: list.nth($item, -1);
+                $is-nested-list: meta.type-of($last-item) == list;
 
                 @while $is-nested-list {
-                    $last-item: nth($last-item, -1);
+                    $last-item: list.nth($last-item, -1);
 
-                    @if type-of($last-item) != list {
+                    @if meta.type-of($last-item) != list {
                         $is-nested-list: false;
-                        $last-item-quoted: type-of($last-item) ==
+                        $last-item-quoted: meta.type-of($last-item) ==
                             string and
                             $quote-strings;
                     }
@@ -57,14 +62,14 @@
             }
         } @else {
             $item: if(
-                type-of($item) == string and $quote-strings,
+                meta.type-of($item) == string and $quote-strings,
                 '"#{$item}"',
                 $item
             );
 
-            @if $i == length($list) {
+            @if $i == list.length($list) {
                 $last-item: $item;
-                $last-item-quoted: type-of($last-item) ==
+                $last-item-quoted: meta.type-of($last-item) ==
                     string and
                     $quote-strings;
 
@@ -78,8 +83,8 @@
     @if $closer != null {
         $offset: if($last-item-quoted, 2, 0);
         $find: #{$glue}#{$last-item};
-        $slice-1: str-slice($output, 1, -(str-length(#{$find}) + 1 + $offset));
-        $slice-2: str-slice($output, -(str-length(#{$last-item}) + $offset));
+        $slice-1: string.slice($output, 1, -(string.length(#{$find}) + 1 + $offset));
+        $slice-2: string.slice($output, -(string.length(#{$last-item}) + $offset));
         $output: #{$slice-1}#{$closer}#{$slice-2};
     }
 
@@ -102,7 +107,7 @@
     $dark: black,
     $light: white
 ) {
-    @if type-of($bg-color) != color {
+    @if meta.type-of($bg-color) != color {
         @error '`#{$bg-color}` is not a valid color.';
     }
 
@@ -110,7 +115,7 @@
         @error '`#{$threshold}` is not a nonnegative number.';
     }
 
-    @if lightness($bg-color) > $threshold {
+    @if color.lightness($bg-color) > $threshold {
         @return $dark;
     } @else {
         @return $light;
@@ -158,11 +163,11 @@
     }
 
     @if $mode == round {
-        @return round($number * $n) / $n;
+        @return math.round($number * $n) / $n;
     } @else if $mode == ceil {
-        @return ceil($number * $n) / $n;
+        @return math.ceil($number * $n) / $n;
     } @else if $mode == floor {
-        @return floor($number * $n) / $n;
+        @return math.floor($number * $n) / $n;
     } @else {
         @return $number;
     }
@@ -171,7 +176,7 @@
 /// Removes the unit from `$number`.
 /// @param {<number>} $number
 @function strip-unit($number) {
-    @if type-of($number) == 'number' and not unitless($number) {
+    @if meta.type-of($number) == 'number' and not math.is-unitless($number) {
         @return $number / ($number * 0 + 1);
     }
 
@@ -193,32 +198,32 @@
 /// Checks if `$value` is a boolean.
 /// @param {<any>} $value
 @function is-bool($value) {
-    @return type-of($value) == bool;
+    @return meta.type-of($value) == bool;
 }
 
 /// Checks if `$value` is a color.
 /// @param {<any>} $value
 @function is-color($value) {
-    @return type-of($value) == color;
+    @return meta.type-of($value) == color;
 }
 
 /// Checks if `$value` is a string.
 /// @param {<any>} $value
 @function is-string($value) {
-    @return type-of($value) == string;
+    @return meta.type-of($value) == string;
 }
 
 /// Checks if `$value` is a number.
 /// @param {<any>} $value
 @function is-number($value) {
-    @return type-of($value) == number;
+    @return meta.type-of($value) == number;
 }
 
 /// Checks if `$value` is a number with a unit.
 /// @param {<any>} $value
 /// @param {<bool>} $warn [false]
 @function is-unit-number($value, $warn: false) {
-    @if is-number($value) and index($lengths, unit($value)) {
+    @if is-number($value) and list.index($lengths, math.unit($value)) {
         @return true;
     }
 
@@ -233,7 +238,7 @@
 /// @param {<any>} $value
 /// @param {<bool>} $warn [false]
 @function is-unitless-number($value, $warn: false) {
-    @if is-number($value) and unitless($value) {
+    @if is-number($value) and math.is-unitless($value) {
         @return true;
     }
 
@@ -263,7 +268,7 @@
 /// @param {<any>} $value
 /// @param {<bool>} $warn [false]
 @function is-nonneg-unit-number($value, $warn: false) {
-    @if is-nonneg-number($value) and index($lengths, unit($value)) {
+    @if is-nonneg-number($value) and list.index($lengths, math.unit($value)) {
         @return true;
     }
 
@@ -278,7 +283,7 @@
 /// @param {<any>} $value
 /// @param {<bool>} $warn [false]
 @function is-nonneg-unitless-number($value, $warn: false) {
-    @if is-nonneg-number($value) and unitless($value) {
+    @if is-nonneg-number($value) and math.is-unitless($value) {
         @return true;
     }
 
@@ -292,13 +297,13 @@
 /// Checks if `$value` is a map.
 /// @param {<any>} $value
 @function is-map($value) {
-    @return type-of($value) == map;
+    @return meta.type-of($value) == map;
 }
 
 /// Checks if `$value` is a list.
 /// @param {<any>} $value
 @function is-list($value) {
-    @return type-of($value) == list;
+    @return meta.type-of($value) == list;
 }
 
 /// Checks if `$needle` is found in `$haystack`.
@@ -306,7 +311,7 @@
 /// @param {<list>} $haystack
 /// @param {<bool>} $warn [false]
 @function is-in-list($needle, $haystack, $warn: false) {
-    @if index($haystack, $needle) {
+    @if list.index($haystack, $needle) {
         @return true;
     }
 
@@ -326,9 +331,9 @@
 /// @param {<any>} $value
 /// @access private
 @function show-param-value($value) {
-    $value: if(type-of($value) == string, '"#{$value}"', $value);
+    $value: if(meta.type-of($value) == string, '"#{$value}"', $value);
 
-    @return 'Received: <#{type-of($value)}: #{$value}>.';
+    @return 'Received: <#{meta.type-of($value)}: #{$value}>.';
 }
 
 /// Returns a formatted string of valid `$values`.

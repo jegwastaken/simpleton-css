@@ -1,6 +1,9 @@
+@use "../core/funcs";
+@use "../core/mixins";
+
 ///
 @mixin button-styles() {
-    @include ellipsis();
+    @include mixins.ellipsis();
 
     display: inline-block;
     padding: var(--padding-button);
@@ -66,7 +69,7 @@ input[type='range'] {
 
 input[type='radio'],
 input[type='checkbox'] {
-    margin: 0 alley(0.25) 0 0;
+    margin: 0 funcs.alley(0.25) 0 0;
     vertical-align: -1px;
 }
 
@@ -89,14 +92,14 @@ select {
 }
 
 fieldset {
-    padding: space();
+    padding: funcs.space();
     border-radius: var(--border-radius);
     border: var(--border-size) solid var(--color-contrast-lower);
 
     legend {
-        margin-left: alley(-0.25);
-        margin-bottom: space(-0.25);
-        padding: 0 alley(0.25);
+        margin-left: funcs.alley(-0.25);
+        margin-bottom: funcs.space(-0.25);
+        padding: 0 funcs.alley(0.25);
         background-color: var(--color-background);
         text-transform: uppercase;
         font-size: var(--font-size-xsmall);

@@ -1,3 +1,5 @@
+@use '../core/funcs';
+
 $line-height: 1.75;
 
 :root {
@@ -69,11 +71,11 @@ $line-height: 1.75;
 
 :root {
     --space: #{$line-height * 1rem};
-    --space-top-h: #{space(1.5)};
-    --space-bottom-h: #{space(0.75)};
+    --space-top-h: #{funcs.space(1.5)};
+    --space-bottom-h: #{funcs.space(0.75)};
     --relative-space: #{$line-height * 1em};
-    --relative-space-top-h: #{relative-space(1.5)};
-    --relative-space-bottom-h: #{relative-space(0.75)};
+    --relative-space-top-h: #{funcs.relative-space(1.5)};
+    --relative-space-bottom-h: #{funcs.relative-space(0.75)};
     --alley: var(--space);
     --p-inline-t: 0.125em;
     --p-inline-r: 0.125em;
@@ -81,33 +83,33 @@ $line-height: 1.75;
     --p-inline-l: 0.25em;
     --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b)
         var(--p-inline-l);
-    --p-box-t: #{space(0.5)};
-    --p-box-r: #{alley(0.5)};
-    --p-box-b: #{space(0.5)};
-    --p-box-l: #{alley(0.5)};
+    --p-box-t: #{funcs.space(0.5)};
+    --p-box-r: #{funcs.alley(0.5)};
+    --p-box-b: #{funcs.space(0.5)};
+    --p-box-l: #{funcs.alley(0.5)};
     --padding-box: var(--p-box-t) var(--p-box-r) var(--p-box-b) var(--p-box-l);
-    --p-message-t: #{space(0.5)};
-    --p-message-r: #{alley(0.5)};
-    --p-message-b: #{space(0.5)};
-    --p-message-l: #{alley(0.5)};
+    --p-message-t: #{funcs.space(0.5)};
+    --p-message-r: #{funcs.alley(0.5)};
+    --p-message-b: #{funcs.space(0.5)};
+    --p-message-l: #{funcs.alley(0.5)};
     --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b)
         var(--p-message-l);
-    --p-table-t: #{space(0.5)};
-    --p-table-r: #{alley(0.5)};
-    --p-table-b: #{space(0.5)};
+    --p-table-t: #{funcs.space(0.5)};
+    --p-table-r: #{funcs.alley(0.5)};
+    --p-table-b: #{funcs.space(0.5)};
     --p-table-l: 0;
     --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
         var(--p-table-l);
-    --p-button-t: #{space(0.25)};
-    --p-button-r: #{alley(0.25)};
-    --p-button-b: #{space(0.25)};
-    --p-button-l: #{alley(0.25)};
+    --p-button-t: #{funcs.space(0.25)};
+    --p-button-r: #{funcs.alley(0.25)};
+    --p-button-b: #{funcs.space(0.25)};
+    --p-button-l: #{funcs.alley(0.25)};
     --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b)
         var(--p-button-l);
-    --p-input-t: #{space(0.25)};
-    --p-input-r: #{alley(0.25)};
-    --p-input-b: #{space(0.25)};
-    --p-input-l: #{alley(0.25)};
+    --p-input-t: #{funcs.space(0.25)};
+    --p-input-r: #{funcs.alley(0.25)};
+    --p-input-b: #{funcs.space(0.25)};
+    --p-input-l: #{funcs.alley(0.25)};
     --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b)
         var(--p-input-l);
     --border-size: 1px;

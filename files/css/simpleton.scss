@@ -1,2 +1,4 @@
-@import 'core';
-@import 'styles';
+@use 'styles/variables';
+@use 'styles/resets';
+@use 'styles/general';
+@use 'styles/forms';

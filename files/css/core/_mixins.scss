@@ -1,9 +1,14 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "funcs";
+
 /// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
 /// @param {<number>} $aspect-width [16]
 /// @param {<number>} $aspect-height [9]
 /// @access private
 @mixin aspect-ratio-to-padding($aspect-width: 16, $aspect-height: 9) {
-    padding-bottom: percentage(calc($aspect-height / $aspect-width));
+    padding-bottom: math.percentage(calc($aspect-height / $aspect-width));
 }
 
 /// Adds styles for a responsive video container.
@@ -100,7 +105,7 @@
 /// Sets default vertical margins for selected elements
 /// @param {<number>|false} $multiplier [false]
 @mixin vertical-margins($multiplier: false) {
-    $m: if(is-nonneg-unitless-number($multiplier), $multiplier, false);
+    $m: if(funcs.is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
         margin-top: if(
@@ -116,7 +121,7 @@
     }
 
     caption {
-        margin-bottom: if($m, calc(#{space($m)} * 0.5), space(0.5));
+        margin-bottom: if($m, calc(#{funcs.space($m)} * 0.5), funcs.space(0.5));
     }
 
     h1 {
@@ -127,7 +132,7 @@
             calc(var(--space-top-h) * #{$m}),
             var(--space-top-h)
         );
-        margin-bottom: if($m, space($m), space());
+        margin-bottom: if($m, funcs.space($m), funcs.space());
     }
 
     h2,
@@ -167,7 +172,7 @@
     table,
     ul,
     video {
-        margin-bottom: if($m, space($m), space());
+        margin-bottom: if($m, funcs.space($m), funcs.space());
     }
 }
 
@@ -179,7 +184,7 @@
     font-family: var(--font-stack-heading);
     line-height: var(--line-height-h#{$type});
 
-    @if is-nonneg-unitless-number($margins-multiplier) {
+    @if funcs.is-nonneg-unitless-number($margins-multiplier) {
         $m: $margins-multiplier;
 
         @include control-margins(top);
@@ -235,11 +240,11 @@
 
 /// Hides element when viewport is as wide or wider than `$breakpoint`
 @mixin hide($breakpoint: s) {
-    @if index(map-keys($breakpoints), $breakpoint) {
-        @include min(map-get($breakpoints, $breakpoint)) {
+    @if list.index(map.keys($breakpoints), $breakpoint) {
+        @include min(map.get($breakpoints, $breakpoint)) {
             display: none;
         }
-    } @else if is-nonneg-unit-number($breakpoint) {
+    } @else if funcs.is-nonneg-unit-number($breakpoint) {
         @include min($breakpoint) {
             display: none;
         }
@@ -249,13 +254,13 @@
 /// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
 @mixin row-vertical-margins($multiplier: 1, $important: false) {
-    $m: if(is-unitless-number($multiplier), $multiplier, 1);
+    $m: if(funcs.is-unitless-number($multiplier), $multiplier, 1);
     $i: if($important == true, $important, false);
 
-    margin-top: space(-$m) if($i, !important, null);
+    margin-top: funcs.space(-$m) if($i, !important, null);
 
     > * {
-        margin-top: space($m) if($i, !important, null);
+        margin-top: funcs.space($m) if($i, !important, null);
     }
 }
 
@@ -264,16 +269,16 @@
 @mixin row-alleys($type: row, $multiplier: false) {
     $m: false;
 
-    @if is-nonneg-unitless-number($multiplier) {
+    @if funcs.is-nonneg-unitless-number($multiplier) {
         $m: $multiplier;
     }
 
     @if $type == row {
-        margin-right: if($m, calc(#{alley(-$m)} / 2), calc(#{alley(-1)} / 2));
-        margin-left: if($m, calc(#{alley(-$m)} / 2), calc(#{alley(-1)} / 2));
+        margin-right: if($m, calc(#{funcs.alley(-$m)} / 2), calc(#{funcs.alley(-1)} / 2));
+        margin-left: if($m, calc(#{funcs.alley(-$m)} / 2), calc(#{funcs.alley(-1)} / 2));
     } @else if $type == col {
-        padding-right: if($m, calc(#{alley($m)} / 2), calc(#{alley()} / 2));
-        padding-left: if($m, calc(#{alley($m)} / 2), calc(#{alley()} / 2));
+        padding-right: if($m, calc(#{funcs.alley($m)} / 2), calc(#{funcs.alley()} / 2));
+        padding-left: if($m, calc(#{funcs.alley($m)} / 2), calc(#{funcs.alley()} / 2));
     }
 }
 
@@ -367,7 +372,7 @@
 @mixin figcaption() {
     @include xsmall();
 
-    padding-top: space(0.5);
+    padding-top: funcs.space(0.5);
     color: var(--color-contrast-medium);
     text-align: center;
     text-transform: uppercase;

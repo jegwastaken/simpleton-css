@@ -1,4 +1,7 @@
-@include vertical-margins();
+@use "../core/funcs";
+@use "../core/mixins";
+
+@include mixins.vertical-margins();
 
 table {
     &.fixed {
@@ -7,18 +10,18 @@ table {
 }
 
 .clearfix {
-    @include clearfix();
+    @include mixins.clearfix();
 }
 
 .table-container {
-    margin-bottom: space();
+    margin-bottom: funcs.space();
     overflow-x: auto;
 }
 
 .video-container {
-    @include video-container();
+    @include mixins.video-container();
 }
 
 .screen-reader-text {
-    @include screen-reader-only();
+    @include mixins.screen-reader-only();
 }

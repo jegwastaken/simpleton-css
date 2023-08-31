@@ -1,3 +1,6 @@
+@use "../core/funcs";
+@use "../core/mixins";
+
 html {
     overflow-y: scroll;
     box-sizing: border-box;
@@ -14,7 +17,7 @@ html {
 }
 
 body {
-    margin: space() alley();
+    margin: funcs.space() funcs.alley();
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-contrast);
@@ -163,7 +166,7 @@ table {
 }
 
 caption {
-    padding-top: space(0.375);
+    padding-top: funcs.space(0.375);
     border-top: var(--border-size) solid var(--color-contrast-lower);
     text-align: left;
     text-transform: uppercase;
@@ -204,7 +207,7 @@ td {
 }
 
 figcaption {
-    @include figcaption();
+    @include mixins.figcaption();
 }
 
 ul {
@@ -217,11 +220,11 @@ ol {
 
 ol,
 ul {
-    margin-left: alley(2);
+    margin-left: funcs.alley(2);
 
     ol,
     ul {
-        margin-left: alley(0.75);
+        margin-left: funcs.alley(0.75);
         margin-bottom: 0;
     }
 }
@@ -232,12 +235,12 @@ dl {
     }
 
     dd {
-        margin-left: alley();
+        margin-left: funcs.alley();
     }
 }
 
 hr {
-    height: space(0.5);
+    height: funcs.space(0.5);
     border: 0;
     background-color: var(--color-contrast-lowest);
 }
@@ -360,10 +363,10 @@ pre {
 }
 
 blockquote {
-    @include xbig();
+    @include mixins.xbig();
 
-    padding: space(0.25) space(0.5);
-    border-left: alley(0.25) solid var(--color-contrast);
+    padding: funcs.space(0.25) funcs.space(0.5);
+    border-left: funcs.alley(0.25) solid var(--color-contrast);
 }
 
 code,
