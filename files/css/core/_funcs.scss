@@ -346,6 +346,17 @@
 }
 
 /// @param {<number>} $multiplier
+@function relative-space($multiplier: 1) {
+    $m: if(is-unitless-number($multiplier), $multiplier, 1);
+
+    @return if(
+        $m != 1,
+        calc(var(--relative-space) * #{$m}),
+        var(--relative-space)
+    );
+}
+
+/// @param {<number>} $multiplier
 @function alley($multiplier: 1) {
     $m: if(is-unitless-number($multiplier), $multiplier, 1);
 
