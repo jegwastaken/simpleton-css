@@ -101,15 +101,15 @@ $line-height: 1.75;
     --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
         var(--p-table-l);
     --p-button-t: #{funcs.space(0.25)};
-    --p-button-r: #{funcs.alley(0.25)};
+    --p-button-r: #{funcs.alley(0.5)};
     --p-button-b: #{funcs.space(0.25)};
-    --p-button-l: #{funcs.alley(0.25)};
+    --p-button-l: #{funcs.alley(0.5)};
     --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b)
         var(--p-button-l);
     --p-input-t: #{funcs.space(0.25)};
-    --p-input-r: #{funcs.alley(0.25)};
+    --p-input-r: #{funcs.alley(0.5)};
     --p-input-b: #{funcs.space(0.25)};
-    --p-input-l: #{funcs.alley(0.25)};
+    --p-input-l: #{funcs.alley(0.5)};
     --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b)
         var(--p-input-l);
     --border-size: 1px;
