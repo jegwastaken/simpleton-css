@@ -1,13 +1,13 @@
-@use "../core/funcs";
-@use "../core/mixins";
+@use '../core/funcs';
+@use '../core/mixins';
 
 ///
 @mixin button-styles() {
     @include mixins.ellipsis();
 
     display: inline-block;
-    padding: var(--padding-button);
-    min-height: calc(var(--min-input-height) + (var(--border-size) * 2));
+    padding: var(--padding-input);
+    min-height: var(--min-input-height);
     border: none;
     border-radius: var(--border-radius);
     background-color: var(--color-contrast);
@@ -64,7 +64,7 @@ input {
 
 input[type='range'] {
     margin: 0;
-    min-height: calc(var(--min-input-height) + (var(--border-size) * 2));
+    min-height: var(--min-input-height);
 }
 
 input[type='radio'],

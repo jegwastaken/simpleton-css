@@ -1,7 +1,5 @@
 @use '../core/funcs';
 
-$line-height: 1.75;
-
 :root {
     --font-stack-serif: Constantia, 'Lucida Bright', Lucidabright, Georgia,
         serif;
@@ -25,7 +23,7 @@ $line-height: 1.75;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --font-weight-heading: var(--font-weight-bold);
-    --line-height-general: #{$line-height};
+    --line-height-general: 1.75;
     --line-height-big: 1.7;
     --line-height-xbig: 1.65;
     --line-height-xxbig: 1.6;
@@ -70,13 +68,14 @@ $line-height: 1.75;
 }
 
 :root {
-    --space: #{$line-height * 1rem};
+    --space: calc(var(--line-height-general) * 1rem);
     --space-top-h: #{funcs.space(1.5)};
     --space-bottom-h: #{funcs.space(0.75)};
-    --relative-space: #{$line-height * 1em};
+    --relative-space: calc(var(--line-height-general) * 1em);
     --relative-space-top-h: #{funcs.relative-space(1.5)};
     --relative-space-bottom-h: #{funcs.relative-space(0.75)};
     --alley: var(--space);
+    --relative-alley: var(--relative-space);
     --p-inline-t: 0.125em;
     --p-inline-r: 0.125em;
     --p-inline-b: 0.125em;
@@ -100,12 +99,6 @@ $line-height: 1.75;
     --p-table-l: 0;
     --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
         var(--p-table-l);
-    --p-button-t: #{funcs.space(0.25)};
-    --p-button-r: #{funcs.alley(0.5)};
-    --p-button-b: #{funcs.space(0.25)};
-    --p-button-l: #{funcs.alley(0.5)};
-    --padding-button: var(--p-button-t) var(--p-button-r) var(--p-button-b)
-        var(--p-button-l);
     --p-input-t: #{funcs.space(0.25)};
     --p-input-r: #{funcs.alley(0.5)};
     --p-input-b: #{funcs.space(0.25)};
@@ -115,7 +108,10 @@ $line-height: 1.75;
     --border-size: 1px;
     --border-radius: 0.25em;
     --max-site-width: 1200px;
-    --min-input-height: 2em;
+    --min-input-height: calc(
+        var(--border-size) * 2 + var(--space) + var(--p-input-t) +
+            var(--p-input-b)
+    );
 }
 
 :root {
