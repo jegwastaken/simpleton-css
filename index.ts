@@ -23,6 +23,7 @@ if(!isProduction) {
     lollygag.do(
         livedev({
             serverPort: 3003,
+            livereloadHost: '192.168.2.111',
             livereloadPort: 35555,
             patterns: {
                 'files/**/*': true,
