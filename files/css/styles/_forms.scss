@@ -36,7 +36,6 @@ button,
 @mixin input-styles() {
     padding: var(--padding-input);
     min-height: var(--min-input-height);
-    width: 100%;
     border: var(--border-size) solid var(--color-contrast-lower);
     border-radius: var(--border-radius);
 }
