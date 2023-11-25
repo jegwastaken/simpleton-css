@@ -143,7 +143,6 @@ table {
     border-spacing: 0;
     border-collapse: collapse;
     text-align: left;
-    border-top: var(--border-size) solid var(--color-contrast-lower);
 }
 
 caption {
@@ -164,6 +163,7 @@ td {
 tr {
     position: relative;
     text-align: left;
+    border-top: var(--border-size) solid var(--color-contrast-lower);
     border-bottom: var(--border-size) solid var(--color-contrast-lower);
 }
 
