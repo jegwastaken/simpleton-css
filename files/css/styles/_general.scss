@@ -1,5 +1,5 @@
-@use "../core/funcs";
-@use "../core/mixins";
+@use '../core/funcs';
+@use '../core/mixins';
 
 @include mixins.vertical-margins();
 
@@ -15,7 +15,7 @@ table {
 
 .table-container {
     margin-bottom: funcs.space();
-    overflow-x: auto;
+    overflow: auto;
 }
 
 .video-container {
