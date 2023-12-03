@@ -33,6 +33,10 @@ button,
     @include button-styles();
 }
 
+[role='button'] {
+    cursor: pointer;
+}
+
 @mixin input-styles() {
     padding: var(--padding-input);
     min-height: var(--min-input-height);
