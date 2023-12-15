@@ -1,5 +1,19 @@
-@use '../core/funcs';
 @use '../core/mixins';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
 
 html {
     overflow-y: scroll;
@@ -18,7 +32,6 @@ html {
 
 body {
     margin: var(--space) var(--alley);
-    padding: 0;
     background-color: var(--color-background);
     color: var(--color-contrast);
     word-wrap: break-word;
@@ -28,16 +41,6 @@ body {
     overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-    font-weight: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
 }
 
 main,
@@ -53,41 +56,6 @@ menu,
 nav,
 section {
     display: block;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ol,
-ul,
-pre,
-address,
-blockquote,
-dl,
-div,
-fieldset,
-form,
-hr,
-noscript,
-table,
-main,
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-    margin: 0;
-    padding: 0;
 }
 
 h1,
@@ -192,11 +160,10 @@ ol {
 
 ol,
 ul {
-    margin-left: calc(var(--alley) * 2);
+    margin-left: calc(var(--alley) * 1.125);
 
     ol,
     ul {
-        margin-left: calc(var(--alley) * 0.75);
         margin-bottom: 0;
     }
 }
@@ -217,15 +184,14 @@ hr {
     background-color: var(--color-contrast-lowest);
 }
 
-// TODO: Delete?
-// q {
-//     quotes: none;
-// }
+q {
+    quotes: none;
+}
 
-// q:before,
-// q:after {
-//     content: none;
-// }
+q:before,
+q:after {
+    content: none;
+}
 
 a {
     color: var(--color-primary);
@@ -396,3 +362,5 @@ sup {
 ::-webkit-search-cancel-button {
     display: none;
 }
+
+@include mixins.vertical-margins();

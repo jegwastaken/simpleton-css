@@ -311,60 +311,6 @@
     }
 }
 
-// TODO: Delete?
-// @mixin row-alley($alley-multiplier, $breakpoint: false) {
-//     $m: false;
-
-//     @if index(map-keys($alley-sizes), $alley-multiplier) {
-//         $m: map-get($alley-sizes, $alley-multiplier);
-//     } @else if is-nonneg-unitless-number($alley-multiplier) {
-//         $m: $alley-multiplier;
-//     }
-
-//     @if $m {
-//         @if index(map-keys($breakpoints), $breakpoint) {
-//             @include min(map-get($breakpoints, $breakpoint)) {
-//                 @include row-alley-styles($m);
-//             }
-//         } @else if is-nonneg-unit-number($breakpoint) {
-//             @include min($breakpoint) {
-//                 @include row-alley-styles($m);
-//             }
-//         } @else {
-//             @include row-alley-styles($m);
-//         }
-//     }
-// }
-
-// TODO: Delete?
-// @mixin col-width($column-width, $breakpoint: false) {
-//     @if index(map-keys($columns), $column-width) {
-//         @if index(map-keys($breakpoints), $breakpoint) {
-//             @include min(map-get($breakpoints, $breakpoint)) {
-//                 width: map-get($columns, $column-width);
-//             }
-//         } @else if is-nonneg-unit-number($breakpoint) {
-//             @include min($breakpoint) {
-//                 width: map-get($columns, $column-width);
-//             }
-//         } @else {
-//             width: map-get($columns, $column-width);
-//         }
-//     } @else if is-nonneg-unitless-number($column-width) {
-//         @if index(map-keys($breakpoints), $breakpoint) {
-//             @include min(map-get($breakpoints, $breakpoint)) {
-//                 width: percentage($column-width);
-//             }
-//         } @else if is-nonneg-unit-number($breakpoint) {
-//             @include min($breakpoint) {
-//                 width: percentage($column-width);
-//             }
-//         } @else {
-//             width: percentage($column-width);
-//         }
-//     }
-// }
-
 /// Utility to clear floats
 @mixin clearfix() {
     &:before,

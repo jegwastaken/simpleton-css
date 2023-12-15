@@ -1,7 +1,4 @@
-@use '../core/funcs';
 @use '../core/mixins';
-
-@include mixins.vertical-margins();
 
 table {
     &.fixed {
