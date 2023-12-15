@@ -14,7 +14,7 @@ table {
 }
 
 .table-container {
-    margin-bottom: funcs.space();
+    margin-bottom: var(--space);
     overflow: auto;
 }
 

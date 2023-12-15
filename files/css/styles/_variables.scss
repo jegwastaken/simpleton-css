@@ -69,11 +69,11 @@
 
 :root {
     --space: calc(var(--line-height-general) * 1rem);
-    --space-top-h: #{funcs.space(1.5)};
-    --space-bottom-h: #{funcs.space(0.75)};
+    --space-top-h: calc(var(--space) * 1.5);
+    --space-bottom-h: calc(var(--space) * 0.75);
     --relative-space: calc(var(--line-height-general) * 1em);
-    --relative-space-top-h: #{funcs.relative-space(1.5)};
-    --relative-space-bottom-h: #{funcs.relative-space(0.75)};
+    --relative-space-top-h: calc(var(--relative-space) * 1.5);
+    --relative-space-bottom-h: calc(var(--relative-space) * 0.75);
     --alley: var(--space);
     --relative-alley: var(--relative-space);
     --p-inline-t: 0.125em;
@@ -82,27 +82,27 @@
     --p-inline-l: 0.25em;
     --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b)
         var(--p-inline-l);
-    --p-box-t: #{funcs.space(0.5)};
-    --p-box-r: #{funcs.alley(0.5)};
-    --p-box-b: #{funcs.space(0.5)};
-    --p-box-l: #{funcs.alley(0.5)};
+    --p-box-t: calc(var(--space) * 0.5);
+    --p-box-r: calc(var(--space) * 0.5);
+    --p-box-b: calc(var(--space) * 0.5);
+    --p-box-l: calc(var(--space) * 0.5);
     --padding-box: var(--p-box-t) var(--p-box-r) var(--p-box-b) var(--p-box-l);
-    --p-message-t: #{funcs.space(0.5)};
-    --p-message-r: #{funcs.alley(0.5)};
-    --p-message-b: #{funcs.space(0.5)};
-    --p-message-l: #{funcs.alley(0.5)};
+    --p-message-t: calc(var(--space) * 0.5);
+    --p-message-r: calc(var(--alley) * 0.5);
+    --p-message-b: calc(var(--space) * 0.5);
+    --p-message-l: calc(var(--alley) * 0.5);
     --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b)
         var(--p-message-l);
-    --p-table-t: #{funcs.space(0.5)};
-    --p-table-r: #{funcs.alley(0.5)};
-    --p-table-b: #{funcs.space(0.5)};
+    --p-table-t: calc(var(--space) * 0.5);
+    --p-table-r: calc(var(--alley) * 0.5);
+    --p-table-b: calc(var(--space) * 0.5);
     --p-table-l: 0;
     --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
         var(--p-table-l);
-    --p-input-t: #{funcs.space(0.25)};
-    --p-input-r: #{funcs.alley(0.5)};
-    --p-input-b: #{funcs.space(0.25)};
-    --p-input-l: #{funcs.alley(0.5)};
+    --p-input-t: calc(var(--space) * 0.25);
+    --p-input-r: calc(var(--alley) * 0.5);
+    --p-input-b: calc(var(--space) * 0.25);
+    --p-input-l: calc(var(--alley) * 0.5);
     --padding-input: var(--p-input-t) var(--p-input-r) var(--p-input-b)
         var(--p-input-l);
     --border-size: 1px;

@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    margin: funcs.space() funcs.alley();
+    margin: var(--space) var(--alley);
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-contrast);
@@ -146,7 +146,7 @@ table {
 }
 
 caption {
-    padding-top: funcs.space(0.375);
+    padding-top: calc(var(--space) * 0.375);
     border-top: var(--border-size) solid var(--color-contrast-lower);
     text-align: left;
     text-transform: uppercase;
@@ -192,11 +192,11 @@ ol {
 
 ol,
 ul {
-    margin-left: funcs.alley(2);
+    margin-left: calc(var(--alley) * 2);
 
     ol,
     ul {
-        margin-left: funcs.alley(0.75);
+        margin-left: calc(var(--alley) * 0.75);
         margin-bottom: 0;
     }
 }
@@ -207,12 +207,12 @@ dl {
     }
 
     dd {
-        margin-left: funcs.alley();
+        margin-left: var(--alley);
     }
 }
 
 hr {
-    height: funcs.space(0.5);
+    height: calc(var(--space) * 0.5);
     border: 0;
     background-color: var(--color-contrast-lowest);
 }
@@ -337,8 +337,8 @@ pre {
 blockquote {
     @include mixins.xbig();
 
-    padding: funcs.space(0.25) funcs.space(0.5);
-    border-left: funcs.alley(0.25) solid var(--color-contrast);
+    padding: calc(var(--space) * 0.25) calc(var(--space) * 0.5);
+    border-left: calc(var(--alley) * 0.25) solid var(--color-contrast);
 }
 
 code,

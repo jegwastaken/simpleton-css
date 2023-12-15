@@ -1,8 +1,8 @@
-@use "sass:color";
-@use "sass:list";
-@use "sass:math";
-@use "sass:meta";
-@use "sass:string";
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:string';
 //
 // Strings
 //
@@ -83,8 +83,15 @@
     @if $closer != null {
         $offset: if($last-item-quoted, 2, 0);
         $find: #{$glue}#{$last-item};
-        $slice-1: string.slice($output, 1, -(string.length(#{$find}) + 1 + $offset));
-        $slice-2: string.slice($output, -(string.length(#{$last-item}) + $offset));
+        $slice-1: string.slice(
+            $output,
+            1,
+            -(string.length(#{$find}) + 1 + $offset)
+        );
+        $slice-2: string.slice(
+            $output,
+            -(string.length(#{$last-item}) + $offset)
+        );
         $output: #{$slice-1}#{$closer}#{$slice-2};
     }
 
@@ -341,29 +348,4 @@
 /// @access private
 @function format-valid-values($values) {
     @return 'Valid values are #{list-to-string($values, ', ', ' and ')}.';
-}
-
-/// @param {<number>} $multiplier
-@function space($multiplier: 1) {
-    $m: if(is-unitless-number($multiplier), $multiplier, 1);
-
-    @return if($m != 1, calc(var(--space) * #{$m}), var(--space));
-}
-
-/// @param {<number>} $multiplier
-@function relative-space($multiplier: 1) {
-    $m: if(is-unitless-number($multiplier), $multiplier, 1);
-
-    @return if(
-        $m != 1,
-        calc(var(--relative-space) * #{$m}),
-        var(--relative-space)
-    );
-}
-
-/// @param {<number>} $multiplier
-@function alley($multiplier: 1) {
-    $m: if(is-unitless-number($multiplier), $multiplier, 1);
-
-    @return if($m != 1, calc(var(--alley) * #{$m}), var(--alley));
 }
