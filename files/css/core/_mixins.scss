@@ -108,10 +108,14 @@
     $m: if(funcs.is-nonneg-unitless-number($multiplier), $multiplier, false);
 
     hr {
-        margin-top: if($m, calc(var(--space-top-h) * $m), var(--space-top-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
         margin-bottom: if(
             $m,
-            calc(var(--space-top-h) * $m),
+            calc(var(--space-top-h) * #{$m}),
             var(--space-top-h)
         );
     }
@@ -119,7 +123,7 @@
     caption {
         margin-bottom: if(
             $m,
-            calc(calc(var(--space) * $m) * 0.5),
+            calc(calc(var(--space) * #{$m}) * 0.5),
             calc(var(--space) * 0.5)
         );
     }
@@ -127,8 +131,12 @@
     h1 {
         @include control-margins(top);
 
-        margin-top: if($m, calc(var(--space-top-h) * $m), var(--space-top-h));
-        margin-bottom: if($m, calc(var(--space) * $m), var(--space));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
+        margin-bottom: if($m, calc(var(--space) * #{$m}), var(--space));
     }
 
     h2,
@@ -138,10 +146,14 @@
     h6 {
         @include control-margins(top);
 
-        margin-top: if($m, calc(var(--space-top-h) * $m), var(--space-top-h));
+        margin-top: if(
+            $m,
+            calc(var(--space-top-h) * #{$m}),
+            var(--space-top-h)
+        );
         margin-bottom: if(
             $m,
-            calc(var(--space-bottom-h) * $m),
+            calc(var(--space-bottom-h) * #{$m}),
             var(--space-bottom-h)
         );
     }
@@ -164,7 +176,7 @@
     table,
     ul,
     video {
-        margin-bottom: if($m, calc(var(--space) * $m), var(--space));
+        margin-bottom: if($m, calc(var(--space) * #{$m}), var(--space));
     }
 }
 
@@ -249,10 +261,10 @@
     $m: if(funcs.is-unitless-number($multiplier), $multiplier, 1);
     $i: if($important == true, $important, false);
 
-    margin-top: calc(var(--space) * -$m) if($i, !important, null);
+    margin-top: calc(var(--space) * -#{$m}) if($i, !important, null);
 
     > * {
-        margin-top: calc(var(--space) * $m) if($i, !important, null);
+        margin-top: calc(var(--space) * #{$m}) if($i, !important, null);
     }
 }
 
@@ -268,23 +280,23 @@
     @if $type == row {
         margin-right: if(
             $m,
-            calc(calc(var(--alley) * -$m / 2)),
+            calc(calc(var(--alley) * -#{$m} / 2)),
             calc(calc(var(--alley) * -1 / 2))
         );
         margin-left: if(
             $m,
-            calc(calc(var(--alley) * -$m / 2)),
+            calc(calc(var(--alley) * -#{$m} / 2)),
             calc(calc(var(--alley) * -1 / 2))
         );
     } @else if $type == col {
         padding-right: if(
             $m,
-            calc(calc(var(--alley) * $m / 2)),
+            calc(calc(var(--alley) * #{$m} / 2)),
             calc(var(--alley) / 2)
         );
         padding-left: if(
             $m,
-            calc(calc(var(--alley) * $m / 2)),
+            calc(calc(var(--alley) * #{$m} / 2)),
             calc(var(--alley) / 2)
         );
     }
