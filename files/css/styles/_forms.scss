@@ -13,6 +13,7 @@
     color: var(--color-background);
     cursor: pointer;
     transition: box-shadow 0.25s, color 0.25s;
+    vertical-align: middle;
 
     &[disabled] {
         cursor: not-allowed;
@@ -41,6 +42,7 @@ button,
     min-height: var(--min-input-height);
     border: var(--border-size) solid var(--color-contrast-lower);
     border-radius: var(--border-radius);
+    vertical-align: middle;
 }
 
 input {
