@@ -323,6 +323,23 @@
     }
 }
 
+@mixin flex-wrap-gap(
+    $space: calc(var(--space) * 1),
+    $alley: calc(var(--alley) * 1),
+    $colsperrow: 2
+) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: #{$space} #{$alley};
+
+    > * {
+        width: calc(
+            (100% / #{$colsperrow}) -
+                (((#{$colsperrow} - 1) / #{$colsperrow}) * #{$alley})
+        );
+    }
+}
+
 /// Utility to clear floats
 @mixin clearfix() {
     &:before,
