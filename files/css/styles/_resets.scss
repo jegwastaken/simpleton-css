@@ -1,4 +1,4 @@
-@use '../core/mixins';
+@use '../core/mixins' as *;
 
 * {
     margin: 0;
@@ -147,7 +147,7 @@ td {
 }
 
 figcaption {
-    @include mixins.figcaption();
+    @include figcaption();
 }
 
 ul {
@@ -299,7 +299,7 @@ pre {
 }
 
 blockquote {
-    @include mixins.xbig();
+    @include xbig();
 
     padding: calc(var(--space) * 0.25) calc(var(--space) * 0.5);
     border-left: calc(var(--alley) * 0.25) solid var(--color-contrast);
@@ -361,4 +361,4 @@ sup {
     display: none;
 }
 
-@include mixins.vertical-margins();
+@include vertical-margins();

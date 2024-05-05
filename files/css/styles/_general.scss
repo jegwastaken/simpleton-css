@@ -1,4 +1,4 @@
-@use '../core/mixins';
+@use '../core/mixins' as *;
 
 table {
     &.fixed {
@@ -7,7 +7,7 @@ table {
 }
 
 .clearfix {
-    @include mixins.clearfix();
+    @include clearfix();
 }
 
 .table-container {
@@ -16,9 +16,9 @@ table {
 }
 
 .video-container {
-    @include mixins.video-container();
+    @include video-container();
 }
 
 .screen-reader-text {
-    @include mixins.screen-reader-only();
+    @include screen-reader-only();
 }

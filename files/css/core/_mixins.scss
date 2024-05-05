@@ -1,7 +1,7 @@
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:math';
-@use 'funcs';
+@use 'funcs' as *;
 
 /// Converts `$aspect-width` and `$aspect-height` to the appropriate bottom padding.
 /// @param {<number>} $aspect-width [16]
@@ -97,6 +97,13 @@
 
 /// Removes bottom margins from last children.
 @mixin controlled($scope: bottom) {
+    @warn "The `controlled` mixin is deprecated. Please use `control-child-margins` instead.";
+    * {
+        @include control-margins(bottom);
+    }
+}
+
+@mixin control-child-margins($scope: bottom) {
     * {
         @include control-margins(bottom);
     }
@@ -105,7 +112,11 @@
 /// Sets default vertical margins for selected elements
 /// @param {<number>|false} $multiplier [false]
 @mixin vertical-margins($multiplier: false) {
-    $m: if(funcs.is-nonneg-unitless-number($multiplier), $multiplier, false);
+    @if not is-nonneg-unitless-number($multiplier) and $multiplier != false {
+        @error "The `vertical-margins` mixin requires a positive unitless number or `false` as its argument.";
+    }
+
+    $m: $multiplier;
 
     hr {
         margin-top: if(
@@ -188,7 +199,7 @@
     font-family: var(--font-stack-heading);
     line-height: var(--line-height-h#{$type});
 
-    @if funcs.is-nonneg-unitless-number($margins-multiplier) {
+    @if is-nonneg-unitless-number($margins-multiplier) {
         $m: $margins-multiplier;
 
         @include control-margins(top);
@@ -242,13 +253,50 @@
     line-height: var(--line-height-xxsmall);
 }
 
+@mixin button-styles() {
+    @include ellipsis();
+
+    display: inline-block;
+    padding: var(--padding-input);
+    min-height: var(--min-input-height);
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--color-contrast);
+    color: var(--color-background);
+    cursor: pointer;
+    transition: box-shadow 0.25s, color 0.25s;
+    vertical-align: middle;
+
+    &[disabled] {
+        cursor: not-allowed;
+        box-shadow: inset 0 0 0 100vh rgba(white, 0.375);
+    }
+
+    a {
+        display: inline-block;
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+        }
+    }
+}
+
+@mixin input-styles() {
+    padding: var(--padding-input);
+    min-height: var(--min-input-height);
+    border: var(--border-size) solid var(--color-contrast-lower);
+    border-radius: var(--border-radius);
+    vertical-align: middle;
+}
+
 /// Hides element when viewport is as wide or wider than `$breakpoint`
 @mixin hide($breakpoint: s) {
     @if list.index(map.keys($breakpoints), $breakpoint) {
         @include min(map.get($breakpoints, $breakpoint)) {
             display: none;
         }
-    } @else if funcs.is-nonneg-unit-number($breakpoint) {
+    } @else if is-nonneg-unit-number($breakpoint) {
         @include min($breakpoint) {
             display: none;
         }
@@ -258,7 +306,7 @@
 /// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
 @mixin row-vertical-margins($multiplier: 1, $important: false) {
-    $m: if(funcs.is-unitless-number($multiplier), $multiplier, 1);
+    $m: if(is-unitless-number($multiplier), $multiplier, 1);
     $i: if($important == true, $important, false);
 
     margin-top: calc(var(--space) * -#{$m}) if($i, !important, null);
@@ -273,7 +321,7 @@
 @mixin row-alleys($type: row, $multiplier: false) {
     $m: false;
 
-    @if funcs.is-nonneg-unitless-number($multiplier) {
+    @if is-nonneg-unitless-number($multiplier) {
         $m: $multiplier;
     }
 

@@ -1,3 +1,5 @@
+@forward 'core/funcs';
+@forward 'core/mixins';
 @use 'styles/variables';
 @use 'styles/resets';
 @use 'styles/general';
