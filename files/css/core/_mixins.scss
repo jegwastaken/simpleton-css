@@ -109,14 +109,66 @@
     }
 }
 
-/// Sets default vertical margins for selected elements
-/// @param {<number>|false} $multiplier [false]
-@mixin vertical-margins($multiplier: false) {
-    @if not is-nonneg-unitless-number($multiplier) and $multiplier != false {
-        @error "The `vertical-margins` mixin requires a positive unitless number or `false` as its argument.";
+@mixin content-styles($vertical-space-multiplier: 1) {
+    @if not is-nonneg-unitless-number($vertical-space-multiplier) {
+        @error "The `content-styles` mixin only accepts a positive unitless number as its argument. You passed `#{$multiplier}`.";
     }
 
-    $m: $multiplier;
+    h1 {
+        font-size: var(--font-size-h1);
+        line-height: var(--line-height-h1);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+        line-height: var(--line-height-h2);
+    }
+
+    h3 {
+        font-size: var(--font-size-h3);
+        line-height: var(--line-height-h3);
+    }
+
+    h4 {
+        font-size: var(--font-size-h4);
+        line-height: var(--line-height-h4);
+    }
+
+    h5 {
+        font-size: var(--font-size-h5);
+        line-height: var(--line-height-h5);
+    }
+
+    caption {
+        padding-top: calc(var(--space) * 0.375);
+        font-size: var(--font-size-xsmall);
+        line-height: var(--line-height-xsmall);
+    }
+
+    figcaption {
+        padding-top: calc(var(--space) * 0.5);
+        font-size: var(--font-size-xsmall);
+        line-height: var(--line-height-xsmall);
+    }
+
+    blockquote {
+        @include xbig();
+
+        padding-top: calc(var(--space) * 0.25);
+        padding-bottom: calc(var(--space) * 0.25);
+    }
+
+    @include vertical-margins($vertical-space-multiplier);
+}
+
+/// Sets default vertical margins for selected elements
+/// @param {<number>|false} $multiplier [false]
+@mixin vertical-margins($multiplier: 1) {
+    @if not is-nonneg-unitless-number($multiplier) {
+        @error "The `vertical-margins` mixin only accepts a positive unitless number as its argument. You passed `#{$multiplier}`.";
+    }
+
+    $m: if($multiplier == 1, false, $multiplier);
 
     hr {
         margin-top: if(
@@ -397,16 +449,6 @@
         width: 100%;
         content: '';
     }
-}
-
-///
-@mixin figcaption() {
-    @include xsmall();
-
-    padding-top: calc(var(--space) * 0.5);
-    color: var(--color-contrast-medium);
-    text-align: center;
-    text-transform: uppercase;
 }
 
 /// Unsets border radius

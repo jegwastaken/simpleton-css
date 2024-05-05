@@ -132,7 +132,7 @@ blockquote {
 .wp-caption-text,
 .wp-caption-dd,
 .gallery-caption {
-    @include figcaption();
+    @extend figcaption;
 }
 
 [class^='embed-'] {

@@ -73,31 +73,6 @@ h6 {
     }
 }
 
-h1 {
-    font-size: var(--font-size-h1);
-    line-height: var(--line-height-h1);
-}
-
-h2 {
-    font-size: var(--font-size-h2);
-    line-height: var(--line-height-h2);
-}
-
-h3 {
-    font-size: var(--font-size-h3);
-    line-height: var(--line-height-h3);
-}
-
-h4 {
-    font-size: var(--font-size-h4);
-    line-height: var(--line-height-h4);
-}
-
-h5 {
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
-}
-
 p {
     &:empty {
         display: none;
@@ -114,12 +89,10 @@ table {
 }
 
 caption {
-    padding-top: calc(var(--space) * 0.375);
     border-top: var(--border-size) solid var(--color-contrast-lower);
     text-align: left;
     text-transform: uppercase;
     font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-xsmall);
 }
 
 tr,
@@ -146,10 +119,6 @@ td {
     padding: var(--padding-table);
 }
 
-figcaption {
-    @include figcaption();
-}
-
 ul {
     list-style: square;
 }
@@ -160,7 +129,7 @@ ol {
 
 ol,
 ul {
-    margin-left: calc(var(--alley) * 1.125);
+    margin-left: calc(var(--alley) * 0.75);
 
     ol,
     ul {
@@ -174,7 +143,7 @@ dl {
     }
 
     dd {
-        margin-left: var(--alley);
+        margin-left: calc(var(--alley) * 0.75);
     }
 }
 
@@ -225,6 +194,11 @@ figure {
     max-width: 100%;
 }
 
+figcaption {
+    color: var(--color-contrast-medium);
+    text-align: center;
+}
+
 video {
     max-width: 100%;
     height: auto;
@@ -266,20 +240,21 @@ small {
 }
 
 ins {
-    padding: var(--padding-inline);
-    background-color: var(--color-primary);
-    color: var(--color-background);
     text-decoration: none;
 }
 
+ins,
 mark {
     padding: var(--padding-inline);
-    background-color: var(--color-primary);
+    background-color: var(--color-dark-accent);
     color: var(--color-background);
+    border-radius: var(--p-inline-t);
 }
 
 code {
+    padding: var(--padding-inline);
     background-color: var(--color-contrast-lowest);
+    border-radius: var(--p-inline-t);
 }
 
 var {
@@ -287,10 +262,10 @@ var {
 }
 
 pre {
-    font-family: var(--font-stack-monospace);
-    font-size: var(--font-size-small);
-    overflow: auto;
     padding: var(--padding-box);
+    font-size: var(--font-size-small);
+    font-family: var(--font-stack-monospace);
+    overflow: auto;
     background-color: var(--color-contrast-lowest);
 
     code {
@@ -299,9 +274,8 @@ pre {
 }
 
 blockquote {
-    @include xbig();
-
-    padding: calc(var(--space) * 0.25) calc(var(--space) * 0.5);
+    padding-left: calc(var(--alley) * 0.5);
+    padding-right: calc(var(--alley) * 0.5);
     border-left: calc(var(--alley) * 0.25) solid var(--color-contrast);
 }
 
@@ -309,19 +283,21 @@ code,
 tt,
 var,
 kbd,
-samp {
+samp,
+ins,
+mark {
     font-size: var(--font-size-small);
+    top: 0.15em;
     font-family: var(--font-stack-monospace);
     position: relative;
     vertical-align: top;
-    top: 0.15em;
 }
 
 cite {
-    font-size: var(--font-size-small);
     font-weight: var(--font-weight-normal);
     font-style: italic;
     vertical-align: top;
+    font-size: var(--font-size-small);
 }
 
 abbr,
@@ -338,11 +314,11 @@ strike {
 }
 
 sub {
-    bottom: -0.35em;
+    bottom: -0.375em;
 }
 
 sup {
-    top: -0.35em;
+    top: -0.25em;
 }
 
 sub,
@@ -360,5 +336,3 @@ sup {
 ::-webkit-search-cancel-button {
     display: none;
 }
-
-@include vertical-margins();

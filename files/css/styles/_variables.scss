@@ -52,17 +52,55 @@
     --color-alert: #c0392b;
     --color-warning: #d35400;
     --color-highlight: #f1c40f;
-    --color-dribbble: #ea4c89;
-    --color-facebook: #3b5998;
-    --color-flickr: #ff0084;
-    --color-instagram: #517fa4;
-    --color-linkedin: #0077b5;
-    --color-medium: #00ab6b;
-    --color-pinterest: #bd081c;
-    --color-rss: #f26522;
-    --color-tumblr: #35465c;
-    --color-twitter: #55acee;
-    --color-youtube: #b31217;
+    --color-brand-dribbble: #ea4c89;
+    --color-brand-facebook: #3b5998;
+    --color-brand-flickr: #ff0084;
+    --color-brand-instagram: #517fa4;
+    --color-brand-linkedin: #0077b5;
+    --color-brand-medium: #00ab6b;
+    --color-brand-pinterest: #bd081c;
+    --color-brand-rss: #f26522;
+    --color-brand-tumblr: #35465c;
+    --color-brand-twitter: #55acee;
+    --color-brand-youtube: #b31217;
+}
+
+:root {
+    --color-primary: #3498db; /* A soothing blue */
+    --color-dark-accent: #2ecc71; /* A fresh green */
+    --color-light-accent: #ecf0f1; /* A light gray */
+    --color-background: #ffffff; /* Clean white background */
+    --color-contrast: #34495e; /* A navy blue */
+    --color-contrast-medium: #7f8c8d; /* A grayish blue */
+    --color-contrast-low: #bdc3c7; /* Light silver */
+    --color-contrast-lower: #e0e0e0; /* Lighter gray */
+    --color-contrast-lowest: #f2f3f4; /* Pale gray, nearly white */
+    --color-contrast-high: #2c3e50; /* Darker blue */
+    --color-contrast-higher: #273c4a; /* Even darker, closer to black-blue */
+    --color-contrast-highest: #212f3d; /* Very dark navy */
+    --color-success: #27ae60; /* A vibrant green */
+    --color-alert: #c0392b; /* A strong red */
+    --color-warning: #f39c12; /* A bright orange */
+    --color-highlight: #f1c40f; /* A vivid yellow */
+}
+
+[data-color-scheme='dark'] {
+    --color-primary: #2980b9; /* A less vibrant blue */
+    --color-dark-accent: #27ae60; /* A darker green */
+    --color-light-accent: #ccd1d1; /* Darker gray */
+    --color-background: #2c3e50; /* A deep, dark blue */
+    --color-contrast: #ecf0f1; /* Bright gray for texts */
+    --color-contrast-medium: #95a5a6; /* Grayish sea foam */
+    --color-contrast-low: #7f8c8d; /* Steel gray */
+    --color-contrast-lower: #bdc3c7; /* Silvery gray */
+    --color-contrast-lowest: #aab7b8; /* Very light seasalt gray */
+    --color-contrast-high: #ffffff; /* Pure white for clarity */
+    --color-contrast-higher: #ccd1d1; /* Pale gray for less aggressive contrast */
+    --color-contrast-highest: #dfe6e9; /* Very light gray for subtle emphasis */
+    --color-success: #2ecc71; /* A deep, rich green */
+    --color-alert: #e74c3c; /* A muted, darker red */
+    --color-warning: #f1c40f; /* Deep yellow */
+    --color-highlight: #f1c40f; /* A vivid yellow */
 }
 
 :root {
@@ -74,10 +112,10 @@
     --relative-space-bottom-h: calc(var(--relative-space) * 0.75);
     --alley: var(--space);
     --relative-alley: var(--relative-space);
-    --p-inline-t: 0.125em;
-    --p-inline-r: 0.125em;
-    --p-inline-b: 0.125em;
-    --p-inline-l: 0.25em;
+    --p-inline-t: 0.24em;
+    --p-inline-r: 0.44em;
+    --p-inline-b: 0.14em;
+    --p-inline-l: 0.44em;
     --padding-inline: var(--p-inline-t) var(--p-inline-r) var(--p-inline-b)
         var(--p-inline-l);
     --p-box-t: calc(var(--space) * 0.5);
@@ -91,9 +129,9 @@
     --p-message-l: calc(var(--alley) * 0.5);
     --padding-message: var(--p-message-t) var(--p-message-r) var(--p-message-b)
         var(--p-message-l);
-    --p-table-t: calc(var(--space) * 0.5);
-    --p-table-r: calc(var(--alley) * 0.5);
-    --p-table-b: calc(var(--space) * 0.5);
+    --p-table-t: calc(var(--space) * 0.375);
+    --p-table-r: calc(var(--alley) * 0.375);
+    --p-table-b: calc(var(--space) * 0.375);
     --p-table-l: 0;
     --padding-table: var(--p-table-t) var(--p-table-r) var(--p-table-b)
         var(--p-table-l);
