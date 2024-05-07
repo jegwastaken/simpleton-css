@@ -35,23 +35,8 @@
     --line-height-h5: 1.5;
 }
 
+// brand colors
 :root {
-    --color-primary: #209ed5;
-    --color-dark-accent: #002f5b;
-    --color-light-accent: #e6f4f1;
-    --color-background: #ffffff;
-    --color-contrast: #252428;
-    --color-contrast-medium: #8c8c8c;
-    --color-contrast-low: #bfbfbf;
-    --color-contrast-lower: #d9d9d9;
-    --color-contrast-lowest: #f2f2f2;
-    --color-contrast-high: #737373;
-    --color-contrast-higher: #595959;
-    --color-contrast-highest: #404040;
-    --color-success: #27ae60;
-    --color-alert: #c0392b;
-    --color-warning: #d35400;
-    --color-highlight: #f1c40f;
     --color-brand-dribbble: #ea4c89;
     --color-brand-facebook: #3b5998;
     --color-brand-flickr: #ff0084;
@@ -65,42 +50,44 @@
     --color-brand-youtube: #b31217;
 }
 
+// default colors
 :root {
-    --color-primary: #3498db; /* A soothing blue */
-    --color-dark-accent: #2ecc71; /* A fresh green */
-    --color-light-accent: #ecf0f1; /* A light gray */
-    --color-background: #ffffff; /* Clean white background */
-    --color-contrast: #34495e; /* A navy blue */
-    --color-contrast-medium: #7f8c8d; /* A grayish blue */
-    --color-contrast-low: #bdc3c7; /* Light silver */
-    --color-contrast-lower: #e0e0e0; /* Lighter gray */
-    --color-contrast-lowest: #f2f3f4; /* Pale gray, nearly white */
-    --color-contrast-high: #2c3e50; /* Darker blue */
-    --color-contrast-higher: #273c4a; /* Even darker, closer to black-blue */
-    --color-contrast-highest: #212f3d; /* Very dark navy */
-    --color-success: #27ae60; /* A vibrant green */
-    --color-alert: #c0392b; /* A strong red */
-    --color-warning: #f39c12; /* A bright orange */
-    --color-highlight: #f1c40f; /* A vivid yellow */
+    --color-primary: #0267c1;
+    --color-dark-accent: #d65108;
+    --color-light-accent: #efa00b;
+    --color-background: #ffffff;
+    --color-contrast: #2b2a29;
+    --color-contrast-medium: #7f8c8d;
+    --color-contrast-low: #bdc3c7;
+    --color-contrast-lower: #e0e0e0;
+    --color-contrast-lowest: #f2f3f4;
+    --color-contrast-high: #2c3e50;
+    --color-contrast-higher: #273c4a;
+    --color-contrast-highest: #212f3d;
+    --color-success: #27ae60;
+    --color-alert: #c0392b;
+    --color-warning: #f39c12;
+    --color-highlight: #f1c40f;
 }
 
+// dark theme
 [data-color-scheme='dark'] {
-    --color-primary: #2980b9; /* A less vibrant blue */
-    --color-dark-accent: #27ae60; /* A darker green */
-    --color-light-accent: #ccd1d1; /* Darker gray */
-    --color-background: #2c3e50; /* A deep, dark blue */
-    --color-contrast: #ecf0f1; /* Bright gray for texts */
-    --color-contrast-medium: #95a5a6; /* Grayish sea foam */
-    --color-contrast-low: #7f8c8d; /* Steel gray */
-    --color-contrast-lower: #bdc3c7; /* Silvery gray */
-    --color-contrast-lowest: #aab7b8; /* Very light seasalt gray */
-    --color-contrast-high: #ffffff; /* Pure white for clarity */
-    --color-contrast-higher: #ccd1d1; /* Pale gray for less aggressive contrast */
-    --color-contrast-highest: #dfe6e9; /* Very light gray for subtle emphasis */
-    --color-success: #2ecc71; /* A deep, rich green */
-    --color-alert: #e74c3c; /* A muted, darker red */
-    --color-warning: #f1c40f; /* Deep yellow */
-    --color-highlight: #f1c40f; /* A vivid yellow */
+    --color-primary: #2980b9;
+    --color-dark-accent: #27ae60;
+    --color-light-accent: #ccd1d1;
+    --color-background: #2c3e50;
+    --color-contrast: #ecf0f1;
+    --color-contrast-medium: #95a5a6;
+    --color-contrast-low: #7f8c8d;
+    --color-contrast-lower: #bdc3c7;
+    --color-contrast-lowest: #aab7b8;
+    --color-contrast-high: #ffffff;
+    --color-contrast-higher: #ccd1d1;
+    --color-contrast-highest: #dfe6e9;
+    --color-success: #2ecc71;
+    --color-alert: #e74c3c;
+    --color-warning: #f1c40f;
+    --color-highlight: #f1c40f;
 }
 
 :root {

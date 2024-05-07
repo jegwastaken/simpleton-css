@@ -111,7 +111,7 @@
 
 @mixin content-styles($vertical-space-multiplier: 1) {
     @if not is-nonneg-unitless-number($vertical-space-multiplier) {
-        @error "The `content-styles` mixin only accepts a positive unitless number as its argument. You passed `#{$multiplier}`.";
+        @error "The `content-styles` mixin only accepts a positive unitless number for the `$vertical-space-multiplier` argument. You passed `#{$vertical-space-multiplier}`.";
     }
 
     h1 {
@@ -165,7 +165,7 @@
 /// @param {<number>|false} $multiplier [false]
 @mixin vertical-margins($multiplier: 1) {
     @if not is-nonneg-unitless-number($multiplier) {
-        @error "The `vertical-margins` mixin only accepts a positive unitless number as its argument. You passed `#{$multiplier}`.";
+        @error "The `vertical-margins` mixin only accepts a positive unitless number for the `$multiplier` argument. You passed `#{$multiplier}`.";
     }
 
     $m: if($multiplier == 1, false, $multiplier);
@@ -358,7 +358,16 @@
 /// @param {<number>} $multiplier [1]
 /// @param {<bool>} $important [false]
 @mixin row-vertical-margins($multiplier: 1, $important: false) {
-    $m: if(is-unitless-number($multiplier), $multiplier, 1);
+    @if not is-nonneg-unitless-number($multiplier) {
+        @error "The `row-vertical-margins` mixin only accepts a positive unitless number for the `$multiplier` argument. You passed `#{$multiplier}`.";
+    }
+
+    $m: if($multiplier == 1, false, $multiplier);
+
+    @if is-nonneg-unitless-number($multiplier) {
+        $m: $multiplier;
+    }
+
     $i: if($important == true, $important, false);
 
     margin-top: calc(var(--space) * -#{$m}) if($i, !important, null);
@@ -370,8 +379,12 @@
 
 /// @param {row|col} $type [row]
 /// @param {<number>|false} $multiplier [false]
-@mixin row-alleys($type: row, $multiplier: false) {
-    $m: false;
+@mixin row-alleys($type: row, $multiplier: 1) {
+    @if not is-nonneg-unitless-number($multiplier) {
+        @error "The `row-alleys` mixin only accepts a positive unitless number for the `$multiplier` argument. You passed `#{$multiplier}`.";
+    }
+
+    $m: if($multiplier == 1, false, $multiplier);
 
     @if is-nonneg-unitless-number($multiplier) {
         $m: $multiplier;
@@ -403,7 +416,15 @@
 }
 
 ///
-@mixin row($alley-multiplier: false) {
+@mixin row($alley-multiplier: 1, $space-multiplier: 1) {
+    @if not is-nonneg-unitless-number($space-multiplier) {
+        @error "The `row` mixin only accepts a positive unitless number for the `$space-multiplier` argument. You passed `#{$space-multiplier}`.";
+    }
+
+    @if not is-nonneg-unitless-number($alley-multiplier) {
+        @error "The `row` mixin only accepts a positive unitless number for the `$alley-multiplier` argument. You passed `#{$alley-multiplier}`.";
+    }
+
     @include row-alleys(row, $alley-multiplier);
 
     display: flex;
@@ -412,6 +433,8 @@
     > * {
         @include row-alleys(col, $alley-multiplier);
     }
+
+    @include row-vertical-margins($space-multiplier);
 }
 
 /// @access private
@@ -424,10 +447,30 @@
 }
 
 @mixin flex-wrap-gap(
-    $space: calc(var(--space) * 1),
-    $alley: calc(var(--alley) * 1),
+    $alley-multiplier: 1,
+    $space-multiplier: 1,
     $colsperrow: 2
 ) {
+    @if not is-nonneg-unitless-number($alley-multiplier) {
+        @error "The `flex-wrap-gap` mixin only accepts a positive unitless number for the `$alley-multiplier` argument. You passed `#{$alley-multiplier}`.";
+    }
+
+    @if not is-nonneg-unitless-number($space-multiplier) {
+        @error "The `flex-wrap-gap` mixin only accepts a positive unitless number for the `$space-multiplier` argument. You passed `#{$space-multiplier}`.";
+    }
+
+    $space: if(
+        $space-multiplier == 1,
+        var(--space),
+        calc(var(--space) * $space-multiplier)
+    );
+
+    $alley: if(
+        $alley-multiplier == 1,
+        var(--alley),
+        calc(var(--alley) * $alley-multiplier)
+    );
+
     display: flex;
     flex-wrap: wrap;
     gap: #{$space} #{$alley};
