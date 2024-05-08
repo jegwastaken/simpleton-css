@@ -89,7 +89,7 @@ table {
 }
 
 caption {
-    border-top: var(--border-size) solid var(--color-contrast-lower);
+    border-top: var(--border-size) solid var(--color-contrast-20);
     text-align: left;
     text-transform: uppercase;
     font-weight: var(--font-weight-bold);
@@ -104,8 +104,8 @@ td {
 tr {
     position: relative;
     text-align: left;
-    border-top: var(--border-size) solid var(--color-contrast-lower);
-    border-bottom: var(--border-size) solid var(--color-contrast-lower);
+    border-top: var(--border-size) solid var(--color-contrast-20);
+    border-bottom: var(--border-size) solid var(--color-contrast-20);
 }
 
 thead,
@@ -150,7 +150,7 @@ dl {
 hr {
     height: calc(var(--space) * 0.5);
     border: 0;
-    background-color: var(--color-contrast-lowest);
+    background-color: var(--color-contrast-10);
 }
 
 q {
@@ -195,7 +195,7 @@ figure {
 }
 
 figcaption {
-    color: var(--color-contrast-medium);
+    color: var(--color-contrast-50);
     text-align: center;
 }
 
@@ -253,7 +253,7 @@ mark {
 
 code {
     padding: var(--padding-inline);
-    background-color: var(--color-contrast-lowest);
+    background-color: var(--color-contrast-10);
     border-radius: var(--p-inline-t);
 }
 
@@ -266,7 +266,7 @@ pre {
     font-size: var(--font-size-small);
     font-family: var(--font-stack-monospace);
     overflow: auto;
-    background-color: var(--color-contrast-lowest);
+    background-color: var(--color-contrast-10);
 
     code {
         font-size: inherit;

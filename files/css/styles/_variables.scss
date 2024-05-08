@@ -57,13 +57,51 @@
     --color-light-accent: #efa00b;
     --color-background: #ffffff;
     --color-contrast: #2b2a29;
-    --color-contrast-medium: #7f8c8d;
-    --color-contrast-low: #bdc3c7;
-    --color-contrast-lower: #e0e0e0;
-    --color-contrast-lowest: #f2f3f4;
-    --color-contrast-high: #2c3e50;
-    --color-contrast-higher: #273c4a;
-    --color-contrast-highest: #212f3d;
+    --color-contrast-10: color-mix(
+        in srgb,
+        var(--color-contrast) 10%,
+        var(--color-background)
+    );
+    --color-contrast-20: color-mix(
+        in srgb,
+        var(--color-contrast) 20%,
+        var(--color-background)
+    );
+    --color-contrast-30: color-mix(
+        in srgb,
+        var(--color-contrast) 30%,
+        var(--color-background)
+    );
+    --color-contrast-40: color-mix(
+        in srgb,
+        var(--color-contrast) 40%,
+        var(--color-background)
+    );
+    --color-contrast-50: color-mix(
+        in srgb,
+        var(--color-contrast) 50%,
+        var(--color-background)
+    );
+    --color-contrast-60: color-mix(
+        in srgb,
+        var(--color-contrast) 60%,
+        var(--color-background)
+    );
+    --color-contrast-70: color-mix(
+        in srgb,
+        var(--color-contrast) 70%,
+        var(--color-background)
+    );
+    --color-contrast-80: color-mix(
+        in srgb,
+        var(--color-contrast) 80%,
+        var(--color-background)
+    );
+    --color-contrast-90: color-mix(
+        in srgb,
+        var(--color-contrast) 90%,
+        var(--color-background)
+    );
     --color-success: #27ae60;
     --color-alert: #c0392b;
     --color-warning: #f39c12;
@@ -72,21 +110,59 @@
 
 // dark theme
 [data-color-scheme='dark'] {
-    --color-primary: #2980b9;
-    --color-dark-accent: #27ae60;
-    --color-light-accent: #ccd1d1;
-    --color-background: #2c3e50;
-    --color-contrast: #ecf0f1;
-    --color-contrast-medium: #95a5a6;
-    --color-contrast-low: #7f8c8d;
-    --color-contrast-lower: #bdc3c7;
-    --color-contrast-lowest: #aab7b8;
-    --color-contrast-high: #ffffff;
-    --color-contrast-higher: #ccd1d1;
-    --color-contrast-highest: #dfe6e9;
-    --color-success: #2ecc71;
-    --color-alert: #e74c3c;
-    --color-warning: #f1c40f;
+    --color-primary: #0267c1;
+    --color-dark-accent: #d65108;
+    --color-light-accent: #efa00b;
+    --color-background: #2b2a29;
+    --color-contrast: #fff;
+    --color-contrast-10: color-mix(
+        in srgb,
+        var(--color-contrast) 10%,
+        var(--color-background)
+    );
+    --color-contrast-20: color-mix(
+        in srgb,
+        var(--color-contrast) 20%,
+        var(--color-background)
+    );
+    --color-contrast-30: color-mix(
+        in srgb,
+        var(--color-contrast) 30%,
+        var(--color-background)
+    );
+    --color-contrast-40: color-mix(
+        in srgb,
+        var(--color-contrast) 40%,
+        var(--color-background)
+    );
+    --color-contrast-50: color-mix(
+        in srgb,
+        var(--color-contrast) 50%,
+        var(--color-background)
+    );
+    --color-contrast-60: color-mix(
+        in srgb,
+        var(--color-contrast) 60%,
+        var(--color-background)
+    );
+    --color-contrast-70: color-mix(
+        in srgb,
+        var(--color-contrast) 70%,
+        var(--color-background)
+    );
+    --color-contrast-80: color-mix(
+        in srgb,
+        var(--color-contrast) 80%,
+        var(--color-background)
+    );
+    --color-contrast-90: color-mix(
+        in srgb,
+        var(--color-contrast) 90%,
+        var(--color-background)
+    );
+    --color-success: #27ae60;
+    --color-alert: #c0392b;
+    --color-warning: #f39c12;
     --color-highlight: #f1c40f;
 }
 
