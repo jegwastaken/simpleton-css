@@ -35,28 +35,12 @@
     --line-height-h5: 1.5;
 }
 
-// brand colors
-:root {
-    --color-brand-dribbble: #ea4c89;
-    --color-brand-facebook: #3b5998;
-    --color-brand-flickr: #ff0084;
-    --color-brand-instagram: #517fa4;
-    --color-brand-linkedin: #0077b5;
-    --color-brand-medium: #00ab6b;
-    --color-brand-pinterest: #bd081c;
-    --color-brand-rss: #f26522;
-    --color-brand-tumblr: #35465c;
-    --color-brand-twitter: #55acee;
-    --color-brand-youtube: #b31217;
-}
-
 // default colors
 :root {
-    --color-primary: #0267c1;
-    --color-dark-accent: #d65108;
-    --color-light-accent: #efa00b;
-    --color-background: #ffffff;
-    --color-contrast: #2b2a29;
+    --color-primary: #e0281f;
+    --color-accent: #1fd7e0;
+    --color-background: #fcfcfc;
+    --color-contrast: #323232;
     --color-contrast-10: color-mix(
         in srgb,
         var(--color-contrast) 10%,
@@ -110,11 +94,10 @@
 
 // dark theme
 [data-color-scheme='dark'] {
-    --color-primary: #0267c1;
-    --color-dark-accent: #d65108;
-    --color-light-accent: #efa00b;
-    --color-background: #2b2a29;
-    --color-contrast: #fff;
+    --color-primary: #e0281f;
+    --color-accent: #1fd7e0;
+    --color-background: #323232;
+    --color-contrast: #fcfcfc;
     --color-contrast-10: color-mix(
         in srgb,
         var(--color-contrast) 10%,
@@ -164,6 +147,21 @@
     --color-alert: #c0392b;
     --color-warning: #f39c12;
     --color-highlight: #f1c40f;
+}
+
+// brand colors
+:root {
+    --color-brand-dribbble: #ea4c89;
+    --color-brand-facebook: #3b5998;
+    --color-brand-flickr: #ff0084;
+    --color-brand-instagram: #517fa4;
+    --color-brand-linkedin: #0077b5;
+    --color-brand-medium: #00ab6b;
+    --color-brand-pinterest: #bd081c;
+    --color-brand-rss: #f26522;
+    --color-brand-tumblr: #35465c;
+    --color-brand-twitter: #55acee;
+    --color-brand-youtube: #b31217;
 }
 
 :root {
