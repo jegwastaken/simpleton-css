@@ -4,38 +4,30 @@
   "description": "A glorified CSS reset.",
   "author": "John Romeral",
   "license": "MIT",
+  "private": true,
   "repository": "https://github.com/jugheadeatsalot/simpleton-css.git",
   "scripts": {
     "build": "NODE_OPTIONS=--trace-warnings ts-node --transpile-only index.ts",
-    "build:production": "NODE_ENV=production yarn build",
-    "prepublishOnly": "yarn build:production",
+    "build:production": "NODE_ENV=production pnpm build",
+    "prepublishOnly": "pnpm build:production",
     "start": "nodemon",
     "serve": "serve public",
     "tsc": "tsc -d",
-    "eslint:panadero": "npx install-peerdeps --dev eslint-config-panadero",
     "prettier": "prettier --write .",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "format": "yarn prettier && yarn eslint"
+    "format": "pnpm prettier && pnpm eslint"
   },
   "devDependencies": {
-    "@lollygag/core": "*",
-    "@lollygag/livedev": "*",
-    "@lollygag/markdown": "*",
-    "@lollygag/sass": "*",
-    "@lollygag/templates": "*",
+    "@eslint/js": "^9.6.0",
+    "@lollygag/lollygag": "^0.1.0",
     "@types/node": "^17.0.33",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "eslint": "^8.15.0",
-    "eslint-config-panadero": "0.0.6",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint": "9.x",
+    "globals": "^15.7.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
     "serve": "^13.0.2",
     "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "typescript-eslint": "^7.15.0"
   }
 }
